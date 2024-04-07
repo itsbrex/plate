@@ -6809,7 +6809,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@udecode/plate-mention@npm:31.0.0, @udecode/plate-mention@workspace:^, @udecode/plate-mention@workspace:packages/mention":
+"@udecode/plate-mention@npm:31.3.5, @udecode/plate-mention@workspace:^, @udecode/plate-mention@workspace:packages/mention":
   version: 0.0.0-use.local
   resolution: "@udecode/plate-mention@workspace:packages/mention"
   dependencies:
@@ -7225,7 +7225,7 @@ __metadata:
     "@udecode/plate-link": "npm:31.0.0"
     "@udecode/plate-list": "npm:31.1.3"
     "@udecode/plate-media": "npm:31.0.0"
-    "@udecode/plate-mention": "npm:31.0.0"
+    "@udecode/plate-mention": "npm:31.3.5"
     "@udecode/plate-node-id": "npm:31.0.0"
     "@udecode/plate-normalizers": "npm:31.0.0"
     "@udecode/plate-paragraph": "npm:31.0.0"
