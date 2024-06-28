@@ -1,10 +1,15 @@
 /* eslint-disable prettier/prettier */
-// @ts-ignore
-import { createHyperscript, createText as createTestText } from "slate-hyperscript";
-import { HyperscriptShorthands } from "slate-hyperscript/dist/hyperscript";
-import { createText } from "./hyperscript/creators";
+import type { HyperscriptShorthands } from 'slate-hyperscript/dist/hyperscript';
+
+import {
+  createHyperscript,
+  createText as createTestText,
+} from 'slate-hyperscript';
+
+import { createText } from './hyperscript/creators';
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
       [key: string]: any;
@@ -15,20 +20,20 @@ declare global {
       element: any;
       focus: any;
       fragment: any;
-      selection: any;
+      hli: any;
+      hol: any;
+      hp: any;
       htext: {
         [key: string]: any;
         // These optional params will show up in the autocomplete!
         bold?: boolean;
-        underline?: boolean;
-        italic?: boolean;
-        code?: boolean;
         children?: any;
+        code?: boolean;
+        italic?: boolean;
+        underline?: boolean;
       };
-      hp: any;
       hul: any;
-      hol: any;
-      hli: any;
+      selection: any;
     }
   }
 }
@@ -62,12 +67,16 @@ const ELEMENT_TODO_LI = 'action_item';
 const ELEMENT_TOGGLE = 'toggle';
 const ELEMENT_TR = 'tr';
 const ELEMENT_UL = 'ul';
+const ELEMENT_COLUMN_GROUP = 'column_group';
+const ELEMENT_COLUMN = 'column';
 
 const elements: HyperscriptShorthands = {
   ha: { type: ELEMENT_LINK },
   hblockquote: { type: ELEMENT_BLOCKQUOTE },
   hcodeblock: { type: ELEMENT_CODE_BLOCK },
   hcodeline: { type: ELEMENT_CODE_LINE },
+  hcolumn: { type: ELEMENT_COLUMN },
+  hcolumngroup: { type: ELEMENT_COLUMN_GROUP },
   hdefault: { type: ELEMENT_PARAGRAPH },
   hexcalidraw: { type: ELEMENT_EXCALIDRAW },
   hh1: { type: ELEMENT_H1 },
@@ -76,12 +85,12 @@ const elements: HyperscriptShorthands = {
   hh4: { type: ELEMENT_H4 },
   hh5: { type: ELEMENT_H5 },
   hh6: { type: ELEMENT_H6 },
-  himg: { type: ELEMENT_IMAGE, children: voidChildren },
+  himg: { children: voidChildren, type: ELEMENT_IMAGE },
   hli: { type: ELEMENT_LI },
   hlic: { type: ELEMENT_LIC },
-  hmediaembed: { type: ELEMENT_MEDIA_EMBED, children: voidChildren },
-  hmention: { type: ELEMENT_MENTION, children: voidChildren },
-  hmentioninput: { type: ELEMENT_MENTION_INPUT, children: voidChildren },
+  hmediaembed: { children: voidChildren, type: ELEMENT_MEDIA_EMBED },
+  hmention: { children: voidChildren, type: ELEMENT_MENTION },
+  hmentioninput: { children: voidChildren, type: ELEMENT_MENTION_INPUT },
   hnli: { type: ELEMENT_NLI },
   hol: { type: ELEMENT_OL },
   hp: { type: ELEMENT_PARAGRAPH },
@@ -95,15 +104,15 @@ const elements: HyperscriptShorthands = {
 };
 
 export const jsx = createHyperscript({
-  elements,
   creators: {
     htext: createTestText,
   },
+  elements,
 });
 
 export const hjsx = createHyperscript({
-  elements,
   creators: {
     htext: createText,
   },
+  elements,
 });

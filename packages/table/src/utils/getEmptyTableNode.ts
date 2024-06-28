@@ -1,8 +1,16 @@
-import { getPluginType, PlateEditor, Value } from '@udecode/plate-common';
+import {
+  type PlateEditor,
+  type Value,
+  getPluginType,
+} from '@udecode/plate-common/server';
+
+import type { TTableElement } from '../types';
 
 import { ELEMENT_TABLE } from '../createTablePlugin';
-import { TTableElement } from '../types';
-import { getEmptyRowNode, GetEmptyRowNodeOptions } from './getEmptyRowNode';
+import {
+  type GetEmptyRowNodeOptions,
+  getEmptyRowNode,
+} from './getEmptyRowNode';
 
 export interface GetEmptyTableNodeOptions extends GetEmptyRowNodeOptions {
   rowCount?: number;
@@ -10,19 +18,14 @@ export interface GetEmptyTableNodeOptions extends GetEmptyRowNodeOptions {
 
 export const getEmptyTableNode = <V extends Value>(
   editor: PlateEditor<V>,
-  {
-    header,
-    rowCount = 0,
-    colCount,
-    newCellChildren,
-  }: GetEmptyTableNodeOptions = {}
+  { colCount, rowCount = 0, ...cellOptions }: GetEmptyTableNodeOptions = {}
 ): TTableElement => {
   const rows = Array.from({ length: rowCount })
     .fill(rowCount)
-    .map(() => getEmptyRowNode(editor, { header, colCount, newCellChildren }));
+    .map(() => getEmptyRowNode(editor, { colCount, ...cellOptions }));
 
   return {
-    type: getPluginType(editor, ELEMENT_TABLE),
     children: rows,
+    type: getPluginType(editor, ELEMENT_TABLE),
   };
 };

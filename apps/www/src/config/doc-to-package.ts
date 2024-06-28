@@ -7,6 +7,7 @@ const plateOverrides = {
   caption: 'plate-caption',
   cloud: 'plate-cloud',
   collaboration: 'plate-yjs',
+  column: 'plate-column',
   combobox: 'plate-combobox',
   comments: 'plate-comments',
   dnd: 'plate-dnd',
@@ -41,6 +42,7 @@ const plateOverrides = {
 export const docToPackage = (name?: string) => {
   if (name && name in plateOverrides) {
     const packageName: string = (plateOverrides as any)[name];
+
     return {
       name: packageName,
       sourcePath: packageName.replace('plate-', ''),

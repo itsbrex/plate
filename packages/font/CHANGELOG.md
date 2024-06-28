@@ -1,5 +1,15 @@
 # @udecode/plate-font
 
+## 34.0.0
+
+### Minor Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Add new transforms `setBlockBackgroundColor`.
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ## 30.5.3

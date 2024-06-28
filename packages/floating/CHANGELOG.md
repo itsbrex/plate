@@ -1,5 +1,33 @@
 # @udecode/plate-floating
 
+## 34.1.1
+
+### Patch Changes
+
+- [#3302](https://github.com/udecode/plate/pull/3302) by [@felixfeng33](https://github.com/felixfeng33) – Fix: Floating toolbar can't open when mouse is released outside of editor.
+
+## 34.0.6
+
+### Patch Changes
+
+- [#3270](https://github.com/udecode/plate/pull/3270) by [@felixfeng33](https://github.com/felixfeng33) – fix: floating toolbar is hidden when user select text by keyboard.
+
+## 34.0.1
+
+### Patch Changes
+
+- [#3251](https://github.com/udecode/plate/pull/3251) by [@felixfeng33](https://github.com/felixfeng33) – fix: can't open dropdown menu
+
+## 34.0.0
+
+### Patch Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Fix: only pop up `floating-toolbar` after the selection is complete.
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ### Minor Changes

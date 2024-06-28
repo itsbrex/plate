@@ -1,5 +1,49 @@
 # @udecode/plate-table
 
+## 35.1.0
+
+### Minor Changes
+
+- [#3313](https://github.com/udecode/plate/pull/3313) by [@zbeyens](https://github.com/zbeyens) –
+  - Add `cellFactory` option to `TablePlugin`, called each time a cell is created. Default is `getEmptyCellNode`
+  - Remove `newCellChildren` option from `TablePlugin`, use `cellFactory` instead
+
+## 34.0.0
+
+## 33.0.7
+
+### Patch Changes
+
+- [#3222](https://github.com/udecode/plate/pull/3222) by [@dimaanj](https://github.com/dimaanj) – fix serializeHtml when overwriteByKey used
+
+## 33.0.2
+
+### Patch Changes
+
+- [#3187](https://github.com/udecode/plate/pull/3187) by [@zbeyens](https://github.com/zbeyens) – Fix types
+
+## 33.0.0
+
+## 32.0.2
+
+### Patch Changes
+
+- [#3172](https://github.com/udecode/plate/pull/3172) by [@KorovinQuantori](https://github.com/KorovinQuantori) – Add computeCellIndices fallback for table insert functions
+
+## 32.0.0
+
+## 31.4.1
+
+### Patch Changes
+
+- [#3138](https://github.com/udecode/plate/pull/3138) by [@felixfeng33](https://github.com/felixfeng33) – Fix: adding marks in a cell is applying to the whole cell
+
+## 31.4.0
+
+### Patch Changes
+
+- [#3118](https://github.com/udecode/plate/pull/3118) by [@felixfeng33](https://github.com/felixfeng33) – Missing exports
+
 ## 31.3.3
 
 ### Patch Changes

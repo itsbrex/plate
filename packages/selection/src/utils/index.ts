@@ -4,5 +4,8 @@
 
 export * from './copySelectedBlocks';
 export * from './extractSelectableIds';
+export * from './getAboveDomNode';
+export * from './onCloseBlockSelection';
+export * from './openContextMenu';
 export * from './pasteSelectedBlocks';
 export * from './selectInsertedBlocks';

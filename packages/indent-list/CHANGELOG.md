@@ -1,5 +1,37 @@
 # @udecode/plate-indent-list
 
+## 34.0.0
+
+### Patch Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Add `toggleIndentListByPath`, add `indentList` options
+
+## 33.0.3
+
+## 33.0.2
+
+## 33.0.0
+
+## 32.0.1
+
+### Patch Changes
+
+- [#3164](https://github.com/udecode/plate/pull/3164) by [@felixfeng33](https://github.com/felixfeng33) – Fix: clicking the checkbox removing the focus
+
+## 32.0.0
+
+## 31.4.3
+
+### Patch Changes
+
+- [#3140](https://github.com/udecode/plate/pull/3140) by [@felixfeng33](https://github.com/felixfeng33) – The behivor abnormal when deleting back to empty list item or quote
+
+## 31.4.0
+
+### Patch Changes
+
+- [#3118](https://github.com/udecode/plate/pull/3118) by [@felixfeng33](https://github.com/felixfeng33) – Missing exports
+
 ## 31.2.2
 
 ### Patch Changes

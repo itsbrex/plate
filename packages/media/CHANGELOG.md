@@ -1,5 +1,33 @@
 # @udecode/plate-media
 
+## 34.1.0
+
+### Minor Changes
+
+- [#3289](https://github.com/udecode/plate/pull/3289) by [@felixfeng33](https://github.com/felixfeng33) – Add image preview
+
+## 34.0.2
+
+### Patch Changes
+
+- [#3253](https://github.com/udecode/plate/pull/3253) by [@hakimLyon](https://github.com/hakimLyon) – Fix: useMediaState
+
+## 34.0.0
+
+### Minor Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Add plugins: `mediaPlaceholder`, `video`,`audio` and `file`
+
+## 33.0.2
+
+### Patch Changes
+
+- [#3187](https://github.com/udecode/plate/pull/3187) by [@zbeyens](https://github.com/zbeyens) – Fix types
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ## 30.5.3

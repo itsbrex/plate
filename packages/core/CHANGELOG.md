@@ -1,5 +1,41 @@
 # @udecode/plate-core
 
+## 34.0.4
+
+## 34.0.1
+
+### Patch Changes
+
+- [#3220](https://github.com/udecode/plate/pull/3220) by [@dimaanj](https://github.com/dimaanj) – [event-editor] expose focus event callbacks
+
+## 34.0.0
+
+### Patch Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Fix: `toggleNodeType` not working using `at`.
+
+## 33.0.3
+
+### Patch Changes
+
+- [#3194](https://github.com/udecode/plate/pull/3194) by [@KorovinQuantori](https://github.com/KorovinQuantori) – Export plugin keys for easier access plugin options by key
+
+## 33.0.0
+
+### Minor Changes
+
+- [#3125](https://github.com/udecode/plate/pull/3125) by [@zbeyens](https://github.com/zbeyens) –
+  - Use `editor.reset` instead of `resetEditor` to focus the editor after reset so it's decoupled from `slate-react`.
+  - Add a server bundle including `createPlateEditor`. It can be imported using `import { createPlateEditor } from '@udecode/plate-core/server'`.
+
+## 32.0.1
+
+## 32.0.0
+
+### Patch Changes
+
+- [#3155](https://github.com/udecode/plate/pull/3155) by [@felixfeng33](https://github.com/felixfeng33) – Export `KeyboardEventHandler` type
+
 ## 31.3.2
 
 ## 31.0.0

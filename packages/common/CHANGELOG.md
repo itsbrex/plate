@@ -1,5 +1,29 @@
 # @udecode/plate-common
 
+## 34.0.5
+
+## 34.0.4
+
+## 34.0.2
+
+## 34.0.1
+
+## 34.0.0
+
+## 33.0.4
+
+### Patch Changes
+
+- [#3199](https://github.com/udecode/plate/pull/3199) by [@zbeyens](https://github.com/zbeyens) – Fix `PlateElementProps` type
+
+## 33.0.3
+
+## 33.0.0
+
+## 32.0.1
+
+## 32.0.0
+
 ## 31.3.2
 
 ## 31.0.0

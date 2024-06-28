@@ -1,5 +1,45 @@
 # @udecode/plate-utils
 
+## 34.0.5
+
+### Patch Changes
+
+- [`1b6917cb95947779d161db2302078280245c91b3`](https://github.com/udecode/plate/commit/1b6917cb95947779d161db2302078280245c91b3) by [@felixfeng33](https://github.com/felixfeng33) – Check if the user has installed selection plugin for `addSelectedRow`.
+
+## 34.0.4
+
+## 34.0.2
+
+### Patch Changes
+
+- [#3133](https://github.com/udecode/plate/pull/3133) by [@PaulSinghDev](https://github.com/PaulSinghDev) – `useFormInputProps`: Generic form input props inside an editor
+
+## 34.0.1
+
+## 34.0.0
+
+### Minor Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Add `addSelectedRow` which depends on `blockSelection` plugin
+
+## 33.0.4
+
+### Patch Changes
+
+- [#3199](https://github.com/udecode/plate/pull/3199) by [@zbeyens](https://github.com/zbeyens) – Fix `PlateElementProps` type
+
+## 33.0.3
+
+## 33.0.0
+
+## 32.0.1
+
+## 32.0.0
+
+### Minor Changes
+
+- [#3155](https://github.com/udecode/plate/pull/3155) by [@felixfeng33](https://github.com/felixfeng33) – Move `moveSelectionByOffset` from `@udecode/plate-mention` to `@udecode/plate-utils`
+
 ## 31.3.2
 
 ## 31.0.0

@@ -1,7 +1,9 @@
-import React from 'react';
-import { createPrimitiveComponent } from '@udecode/plate-common';
+import type React from 'react';
+
+import { createPrimitiveComponent, useElement } from '@udecode/plate-common';
 import { useReadOnly, useSelected } from 'slate-react';
 
+import { useCaptionSelectors } from '../captionGlobalStore';
 import { useCaptionString } from '../hooks/useCaptionString';
 
 export interface CaptionOptions {
@@ -14,29 +16,33 @@ export interface CaptionProps
 }
 
 export const useCaptionState = (options: CaptionOptions = {}) => {
+  const element = useElement();
   const captionString = useCaptionString();
+  const showCaption = useCaptionSelectors().isShow(element.id as string);
 
   const selected = useSelected();
   const _readOnly = useReadOnly();
   const readOnly = options.readOnly || _readOnly;
 
+  const hidden = !showCaption && captionString.length === 0;
+
   return {
     captionString,
-    selected,
+    hidden,
     readOnly,
+    selected,
   };
 };
 
 export const useCaption = (state: ReturnType<typeof useCaptionState>) => {
   return {
-    hidden:
-      state.captionString.length === 0 && (state.readOnly || !state.selected),
+    hidden: state.hidden,
   };
 };
 
 export const Caption = createPrimitiveComponent<'figcaption', CaptionProps>(
   'figcaption'
 )({
-  stateHook: useCaptionState,
   propsHook: useCaption,
+  stateHook: useCaptionState,
 });

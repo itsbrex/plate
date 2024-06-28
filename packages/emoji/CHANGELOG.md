@@ -1,5 +1,31 @@
 # @udecode/plate-emoji
 
+## 34.0.8
+
+## 34.0.0
+
+### Major Changes
+
+- [#3168](https://github.com/udecode/plate/pull/3168) by [@12joan](https://github.com/12joan) –
+  - Now uses the reworked combobox package
+  - Added `ELEMENT_EMOJI_INPUT`; combobox functionality must now be handled in the component
+  - Plugin options:
+    - Now extends from `TriggerComboboxPlugin`
+    - Added `createEmojiNode` to support custom emoji nodes
+    - Removed `emojiTriggeringController`
+    - Removed `id` (no longer needed)
+    - Removed `createEmoji`
+
+## 33.0.0
+
+## 32.0.0
+
+## 31.4.0
+
+### Patch Changes
+
+- [#3118](https://github.com/udecode/plate/pull/3118) by [@felixfeng33](https://github.com/felixfeng33) – Missing exports
+
 ## 31.0.0
 
 ### Minor Changes

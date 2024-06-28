@@ -1,5 +1,35 @@
 # @udecode/plate-link
 
+## 34.1.1
+
+## 34.0.6
+
+## 34.0.1
+
+## 34.0.0
+
+### Patch Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) – Fix link button closing the floating toolbar.
+
+## 33.0.5
+
+### Patch Changes
+
+- [#3204](https://github.com/udecode/plate/pull/3204) by [@jijiseong](https://github.com/jijiseong) – Fix zIndex of floating link
+
+## 33.0.3
+
+## 33.0.2
+
+### Patch Changes
+
+- [#3187](https://github.com/udecode/plate/pull/3187) by [@zbeyens](https://github.com/zbeyens) – Fix types
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ## 30.9.4

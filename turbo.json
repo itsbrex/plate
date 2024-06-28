@@ -22,14 +22,15 @@
       "persistent": true
     },
     "brl": {
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "clean": {
       "cache": false,
       "outputs": []
     },
     "lint": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [],
       "outputs": []
     },
@@ -45,7 +46,6 @@
       "outputs": []
     },
     "typecheck": {
-      "dependsOn": ["build"],
       "outputs": [],
       "cache": true
     },

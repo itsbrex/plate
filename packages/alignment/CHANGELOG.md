@@ -1,5 +1,17 @@
 # @udecode/plate-alignment
 
+## 34.0.0
+
+## 33.0.6
+
+### Patch Changes
+
+- [#3209](https://github.com/udecode/plate/pull/3209) by [@kumarajay0412](https://github.com/kumarajay0412) – Fix `useAlignDropdownMenuState`: align value for multiple selected blocks
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ### Minor Changes

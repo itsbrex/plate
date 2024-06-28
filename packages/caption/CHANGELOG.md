@@ -1,5 +1,40 @@
 # @udecode/plate-caption
 
+## 34.1.0
+
+### Minor Changes
+
+- [#3289](https://github.com/udecode/plate/pull/3289) by [@felixfeng33](https://github.com/felixfeng33) – Add `showCaption` utils
+
+## 34.0.8
+
+### Patch Changes
+
+- [#3287](https://github.com/udecode/plate/pull/3287) by [@TyMick](https://github.com/TyMick) – Update caption UI when element `caption` property changes
+
+## 34.0.3
+
+### Patch Changes
+
+- [#3257](https://github.com/udecode/plate/pull/3257) by [@felixfeng33](https://github.com/felixfeng33) – fix caption when editor is blur
+
+## 34.0.0
+
+### Major Changes
+
+- [#3241](https://github.com/udecode/plate/pull/3241) by [@felixfeng33](https://github.com/felixfeng33) –
+  - Breaking change: the empty caption textarea is no longer showed on image focus. You can use the caption store to show the caption textarea.
+
+## 33.0.2
+
+### Patch Changes
+
+- [#3187](https://github.com/udecode/plate/pull/3187) by [@zbeyens](https://github.com/zbeyens) – Fix types
+
+## 33.0.0
+
+## 32.0.0
+
 ## 31.0.0
 
 ### Minor Changes

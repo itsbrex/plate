@@ -1,5 +1,27 @@
 # @udecode/plate-basic-elements
 
+## 35.0.0
+
+## 34.0.7
+
+## 34.0.0
+
+## 33.0.3
+
+### Patch Changes
+
+- [#3194](https://github.com/udecode/plate/pull/3194) by [@KorovinQuantori](https://github.com/KorovinQuantori) – Export plugin keys for easier access plugin options by key
+
+## 33.0.2
+
+## 33.0.1
+
+## 33.0.0
+
+## 32.0.0
+
+## 31.4.3
+
 ## 31.3.4
 
 ## 31.0.0

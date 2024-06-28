@@ -1,25 +1,22 @@
-import '@/styles/mdx.css';
+import Balancer from 'react-wrap-balancer';
 
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import type { PackageInfoType } from '@/hooks/use-package-info';
+
 import { cn } from '@udecode/cn';
 import { allDocs } from 'contentlayer/generated';
 import { ChevronRight, ExternalLinkIcon } from 'lucide-react';
-import Balancer from 'react-wrap-balancer';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-import { docToPackage } from '@/config/doc-to-package';
-import { siteConfig } from '@/config/site';
-import { absoluteUrl } from '@/lib/absoluteUrl';
-import { formatBytes, getPackageData } from '@/lib/bundlephobia';
-import { getTableOfContents } from '@/lib/toc';
-import { PackageInfoType } from '@/hooks/use-package-info';
-import { badgeVariants } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Mdx } from '@/components/mdx-components';
 import { DocsPager } from '@/components/pager';
 import { DashboardTableOfContents } from '@/components/toc';
+import { badgeVariants } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area';
+// import { formatBytes, getPackageData } from '@/lib/bundlephobia';
+import { getTableOfContents } from '@/lib/toc';
 
-import type { Metadata } from 'next';
+import '@/styles/mdx.css';
 
 interface DocPageProps {
   params: {
@@ -38,48 +35,48 @@ function getDocFromParams({ params }: DocPageProps) {
   return doc;
 }
 
-export async function generateMetadata({
-  params,
-}: DocPageProps): Promise<Metadata> {
-  const doc = getDocFromParams({ params });
+// export async function generateMetadata({
+//   params,
+// }: DocPageProps): Promise<Metadata> {
+//   const doc = getDocFromParams({ params });
+//
+//   if (!doc) {
+//     return {};
+//   }
+//
+//   return {
+//     title: doc.title,
+//     description: doc.description,
+//     openGraph: {
+//       title: doc.title,
+//       description: doc.description,
+//       type: 'article',
+//       url: absoluteUrl(doc.slug),
+//       images: [
+//         {
+//           url: siteConfig.ogImage,
+//           width: 1200,
+//           height: 630,
+//           alt: siteConfig.name,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: doc.title,
+//       description: doc.description,
+//       images: [siteConfig.ogImage],
+//       creator: '@shadcn',
+//     },
+//   };
+// }
 
-  if (!doc) {
-    return {};
-  }
-
-  return {
-    title: doc.title,
-    description: doc.description,
-    openGraph: {
-      title: doc.title,
-      description: doc.description,
-      type: 'article',
-      url: absoluteUrl(doc.slug),
-      images: [
-        {
-          url: siteConfig.ogImage,
-          width: 1200,
-          height: 630,
-          alt: siteConfig.name,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: doc.title,
-      description: doc.description,
-      images: [siteConfig.ogImage],
-      creator: '@shadcn',
-    },
-  };
-}
-
-export async function generateStaticParams(): Promise<
-  DocPageProps['params'][]
-> {
-  return allDocs.map((doc) => ({
+export function generateStaticParams(): DocPageProps['params'][] {
+  const docs = allDocs.map((doc) => ({
     slug: doc.slugAsParams.split('/'),
   }));
+
+  return docs;
 }
 
 export default async function DocPage({ params }: DocPageProps) {
@@ -95,23 +92,23 @@ export default async function DocPage({ params }: DocPageProps) {
     npm: '',
     source: '',
   };
-  const pkg = docToPackage(name);
+  // const pkg = docToPackage(name);
 
-  if (pkg) {
-    const { gzip: gzipNumber } = await getPackageData(pkg.name);
-    const gzip =
-      typeof gzipNumber === 'number' ? formatBytes(gzipNumber) : null;
-
-    packageInfo.name = pkg.name;
-    if (gzip) {
-      packageInfo.gzip = gzip;
-    }
-    packageInfo.source =
-      'https://github.com/udecode/plate/tree/main/packages/' +
-      pkg.sourcePath +
-      '/src';
-    packageInfo.npm = 'https://www.npmjs.com/package/@udecode/' + pkg.name;
-  }
+  // if (pkg) {
+  //   const { gzip: gzipNumber } = await getPackageData(pkg.name);
+  //   const gzip =
+  //     typeof gzipNumber === 'number' ? formatBytes(gzipNumber) : null;
+  //
+  //   packageInfo.name = pkg.name;
+  //   if (gzip) {
+  //     packageInfo.gzip = gzip;
+  //   }
+  //   packageInfo.source =
+  //     'https://github.com/udecode/plate/tree/main/packages/' +
+  //     pkg.sourcePath +
+  //     '/src';
+  //   packageInfo.npm = 'https://www.npmjs.com/package/@udecode/' + pkg.name;
+  // }
 
   if (!doc) {
     notFound();
@@ -143,14 +140,14 @@ export default async function DocPage({ params }: DocPageProps) {
             </p>
           )}
         </div>
-        {doc.links ? (
+        {doc.links || doc.docs ? (
           <div className="flex flex-wrap items-center gap-1 pt-4">
             {doc.links?.doc && (
               <Link
-                href={doc.links.doc}
-                target="_blank"
-                rel="noreferrer"
                 className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
+                href={doc.links.doc}
+                rel="noreferrer"
+                target="_blank"
               >
                 Docs
                 <ExternalLinkIcon className="size-3" />
@@ -158,10 +155,10 @@ export default async function DocPage({ params }: DocPageProps) {
             )}
             {doc.links?.api && (
               <Link
-                href={doc.links.api}
-                target="_blank"
-                rel="noreferrer"
                 className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
+                href={doc.links.api}
+                rel="noreferrer"
+                target="_blank"
               >
                 API Reference
                 <ExternalLinkIcon className="size-3" />
@@ -169,8 +166,6 @@ export default async function DocPage({ params }: DocPageProps) {
             )}
             {doc.docs?.map((item) => (
               <Link
-                key={item.route}
-                href={item.route as any}
                 className={cn(
                   badgeVariants({
                     variant: item.route?.includes('components')
@@ -178,6 +173,8 @@ export default async function DocPage({ params }: DocPageProps) {
                       : 'secondary',
                   })
                 )}
+                href={item.route as any}
+                key={item.route}
               >
                 {item.title}
               </Link>

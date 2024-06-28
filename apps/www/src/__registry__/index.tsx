@@ -67,6 +67,20 @@ export const Index: Record<string, any> = {
       files: ['registry/default/plate-ui/code-block-combobox.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/code-block-combobox')),
     },
+    'column-element': {
+      name: 'column-element',
+      type: 'components:plate-ui',
+      registryDependencies: ["command","resizable"],
+      files: ['registry/default/plate-ui/column-element.tsx','registry/default/plate-ui/column-group-element.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/column-element')),
+    },
+    'column-group-element': {
+      name: 'column-group-element',
+      type: 'components:plate-ui',
+      registryDependencies: ["command","resizable"],
+      files: ['registry/default/plate-ui/column-group-element.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/column-group-element')),
+    },
     'color-dropdown-menu': {
       name: 'color-dropdown-menu',
       type: 'components:plate-ui',
@@ -242,6 +256,13 @@ export const Index: Record<string, any> = {
       files: ['registry/default/plate-ui/emoji-picker-search-bar.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/emoji-picker-search-bar')),
     },
+    'emoji-input-element': {
+      name: 'emoji-input-element',
+      type: 'components:plate-ui',
+      registryDependencies: ["inline-combobox"],
+      files: ['registry/default/plate-ui/emoji-input-element.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/emoji-input-element')),
+    },
     'align-dropdown-menu': {
       name: 'align-dropdown-menu',
       type: 'components:plate-ui',
@@ -305,13 +326,6 @@ export const Index: Record<string, any> = {
       files: ['registry/default/plate-ui/code-syntax-leaf.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/code-syntax-leaf')),
     },
-    'combobox': {
-      name: 'combobox',
-      type: 'components:plate-ui',
-      registryDependencies: [],
-      files: ['registry/default/plate-ui/combobox.tsx'],
-      component: React.lazy(() => import('@/registry/default/plate-ui/combobox')),
-    },
     'command': {
       name: 'command',
       type: 'components:plate-ui',
@@ -353,13 +367,6 @@ export const Index: Record<string, any> = {
       registryDependencies: [],
       files: ['registry/default/plate-ui/dropdown-menu.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/dropdown-menu')),
-    },
-    'emoji-combobox': {
-      name: 'emoji-combobox',
-      type: 'components:plate-ui',
-      registryDependencies: [],
-      files: ['registry/default/plate-ui/emoji-combobox.tsx'],
-      component: React.lazy(() => import('@/registry/default/plate-ui/emoji-combobox')),
     },
     'excalidraw-element': {
       name: 'excalidraw-element',
@@ -437,6 +444,13 @@ export const Index: Record<string, any> = {
       registryDependencies: ["toolbar"],
       files: ['registry/default/plate-ui/indent-toolbar-button.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/indent-toolbar-button')),
+    },
+    'inline-combobox': {
+      name: 'inline-combobox',
+      type: 'components:plate-ui',
+      registryDependencies: [],
+      files: ['registry/default/plate-ui/inline-combobox.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/inline-combobox')),
     },
     'input': {
       name: 'input',
@@ -529,12 +543,12 @@ export const Index: Record<string, any> = {
       files: ['registry/default/plate-ui/media-toolbar-button.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/media-toolbar-button')),
     },
-    'mention-combobox': {
-      name: 'mention-combobox',
+    'mention-element': {
+      name: 'mention-element',
       type: 'components:plate-ui',
-      registryDependencies: ["combobox"],
-      files: ['registry/default/plate-ui/mention-combobox.tsx'],
-      component: React.lazy(() => import('@/registry/default/plate-ui/mention-combobox')),
+      registryDependencies: [],
+      files: ['registry/default/plate-ui/mention-element.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/mention-element')),
     },
     'mention-element': {
       name: 'mention-element',
@@ -546,7 +560,7 @@ export const Index: Record<string, any> = {
     'mention-input-element': {
       name: 'mention-input-element',
       type: 'components:plate-ui',
-      registryDependencies: [],
+      registryDependencies: ["inline-combobox"],
       files: ['registry/default/plate-ui/mention-input-element.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/mention-input-element')),
     },
@@ -605,6 +619,13 @@ export const Index: Record<string, any> = {
       registryDependencies: [],
       files: ['registry/default/plate-ui/separator.tsx'],
       component: React.lazy(() => import('@/registry/default/plate-ui/separator')),
+    },
+    'slash-input-element': {
+      name: 'slash-input-element',
+      type: 'components:plate-ui',
+      registryDependencies: ["inline-combobox"],
+      files: ['registry/default/plate-ui/slash-input-element.tsx'],
+      component: React.lazy(() => import('@/registry/default/plate-ui/slash-input-element')),
     },
     'table-cell-element': {
       name: 'table-cell-element',

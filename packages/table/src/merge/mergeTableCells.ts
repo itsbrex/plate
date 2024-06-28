@@ -1,34 +1,32 @@
 import {
+  type PlateEditor,
+  type Value,
   collapseSelection,
   getBlockAbove,
   getPluginOptions,
   getPluginType,
   insertElements,
   isElementEmpty,
-  PlateEditor,
   removeNodes,
-  Value,
   withoutNormalizing,
-} from '@udecode/plate-common';
+} from '@udecode/plate-common/server';
 import cloneDeep from 'lodash/cloneDeep.js';
+
+import type { TTableCellElement, TTableElement, TablePlugin } from '../types';
 
 import { ELEMENT_TABLE, ELEMENT_TH } from '../createTablePlugin';
 import { getTableGridAbove } from '../queries';
 import { getColSpan } from '../queries/getColSpan';
 import { getRowSpan } from '../queries/getRowSpan';
-import { TablePlugin, TTableCellElement, TTableElement } from '../types';
-import { getEmptyCellNode } from '../utils';
 import { computeCellIndices } from './computeCellIndices';
 import { getCellIndices } from './getCellIndices';
 
-/**
- * Merges multiple selected cells into one.
- */
+/** Merges multiple selected cells into one. */
 export const mergeTableCells = <V extends Value = Value>(
   editor: PlateEditor<V>
 ) => {
   withoutNormalizing(editor, () => {
-    const { _cellIndices } = getPluginOptions<TablePlugin, V>(
+    const { _cellIndices, cellFactory } = getPluginOptions<TablePlugin, V>(
       editor,
       ELEMENT_TABLE
     );
@@ -41,6 +39,7 @@ export const mergeTableCells = <V extends Value = Value>(
 
     // calculate the colSpan which is the number of horizontal cells that a cell should span.
     let colSpan = 0;
+
     for (const entry of cellEntries) {
       const [data, path] = entry;
 
@@ -64,28 +63,31 @@ export const mergeTableCells = <V extends Value = Value>(
       const { col: curCol } =
         _cellIndices?.get(cell) ||
         computeCellIndices(editor, tableEntry[0] as TTableElement, cell)!;
+
       if (col === curCol) {
         rowSpan += getRowSpan(cell);
       }
     });
 
     // This will store the content of all cells we are merging
-    const contents = [];
+    const cellChildren = [];
+
     for (const cellEntry of cellEntries) {
       const [el] = cellEntry;
+
       if (
         el.children.length !== 1 ||
         !isElementEmpty(editor, el.children[0] as any)
       ) {
-        contents.push(...cloneDeep(el.children));
+        cellChildren.push(...cloneDeep(el.children));
       }
     }
 
     // Create a hash map where keys are col paths,
     // and values are an array of all paths with that column
-    const cols: { [key: string]: number[][] } = {};
+    const cols: Record<string, number[][]> = {};
 
-    cellEntries.forEach(([entry, path]) => {
+    cellEntries.forEach(([_entry, path]) => {
       const rowIndex = path.at(-2)!;
 
       if (cols[rowIndex]) {
@@ -106,9 +108,9 @@ export const mergeTableCells = <V extends Value = Value>(
     // Create a new cell to replace the merged cells, with
     // calculated colSpan and rowSpan attributes and combined content
     const mergedCell = {
-      ...getEmptyCellNode(editor, {
+      ...cellFactory!({
+        children: cellChildren,
         header: cellEntries[0][0].type === getPluginType(editor, ELEMENT_TH),
-        newCellChildren: contents,
       }),
       colSpan,
       rowSpan,
